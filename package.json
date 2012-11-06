@@ -6,13 +6,12 @@
     "contributors": [
         {
             "name": "Bjoern Zapadlo",
-            "email": "marak@nodejitsu.com"
+            "email": "bjoern.zapadlo@googlemail.com"
         }
     ],
-    "main": "./lib/http-server",
     "repository": {
         "type": "git",
-        "url": "https://github.com/nodejitsu/http-server.git"
+        "url": "https://github.com/gmb2012/dashboard-server"
     },
     "dependencies" : {
         "restify"   :  "1.4.4"

@@ -3,7 +3,6 @@
  */
 var i = 0;
 
-
 var fs = require('fs'),
     restify = require('restify'),
     config  = require('./config'),
@@ -29,8 +28,6 @@ server.get('/set/:application/:type/:value', function (request, response, next) 
     } else {
         response.send(404, "Application not found");
     }
-
-    return next();
 });
 
 server.get('/getLatest/:application/:type', function (request, response, next) {
@@ -39,8 +36,6 @@ server.get('/getLatest/:application/:type', function (request, response, next) {
     } else {
         response.send(404, "Application not found");
     }
-
-    return next();
 });
 
 server.listen(config.server.port, function () {
