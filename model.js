@@ -14,11 +14,11 @@ function Data(entriesToKeep) {
             this.data = this.data.slice(this.entriesToKeep * -1);
         }
 
-    }
+    };
 
     this.getLatest = function() {
         return this.data[this.data.length - 1];
-    }
+    };
 
 }
 
@@ -26,22 +26,22 @@ function Application(entriesToKeep) {
     this.data = {};
     this.entriesToKeep = entriesToKeep;
 
-    this.add = function (type, value) {
-        if(!this[type]) {
-            this[type] = new Data(entriesToKeep);
+    this.add = function (monitor, value) {
+        if(!this[monitor]) {
+            this[monitor] = new Data(entriesToKeep);
         }
-        this[type].set(value);
-    }
+        this[monitor].set(value);
+    };
 
-    this.getLatest = function(type) {
+    this.getLatest = function(monitor) {
         var returnValue = {};
 
-        if(this[type]) {
-            returnValue = this[type].getLatest();
+        if(this[monitor]) {
+            returnValue = this[monitor].getLatest();
         }
 
         return returnValue;
-    }
+    };
 }
 
 module.exports = Application;
