@@ -1,9 +1,13 @@
 /* CONFIG */
 var config = {};
 
-// Server configs
-config.server = {};
-config.server.port = 8888;
+// REST Server configs
+config.restServer = {};
+config.restServer.port = 8888;
+
+// Websocket Server configs
+config.websocketServer = {};
+config.websocketServer.port = 1337;
 
 // Enabled apps
 config.applications = ["App1", "App2"];

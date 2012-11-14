@@ -1,20 +1,9 @@
-/* WEBSERVICE FOR DASHBOARD
- * npm install restify
- */
-var i = 0;
-
-var fs = require('fs'),
-    restify = require('restify'),
+var restify = require('restify'),
     config  = require('./config'),
-    Application = require('./model.js');
-
-var packageInformation = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+    applications = require('./core.js');
 
 /* configure restify server */
-var server = restify.createServer({
-    name: packageInformation.name,
-    version: packageInformation.version
-});
+var server = restify.createServer();
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
@@ -38,13 +27,9 @@ server.get('/getLatest/:application/:monitor', function (request, response) {
     }
 });
 
-server.listen(config.server.port, function () {
-    console.log('%s listening at %s', server.name, server.url);
+server.listen(config.restServer.port, function () {
+    console.log('REST -  listening at port %s', config.restServer.port);
 });
 
 
-/* init all applications */
-var applications = {};
-for(; i < config.applications.length; i++) {
-    applications[config.applications[i]] = new Application();
-}
+
