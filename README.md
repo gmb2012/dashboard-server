@@ -1,6 +1,10 @@
 # Dashboard #
 Simple Dashboard incl. server and multiple clients
 
+To-Do:
+* Add Websockets to server
+* Add Javascript Client
+
 ## Server ##
 ### REST interface ###
 #### Getting values ####
