@@ -1,27 +1,11 @@
-var app = require('http').createServer(handler),
-    io = require('socket.io').listen(app),
+var config  = require('./config'),
+    io = require('socket.io').listen(config.websocketServer.port),
     fs = require('fs'),
-    config  = require('./config'),
     applications = require('./core.js');
-
-app.listen(80);
-
-function handler (req, res) {
-    fs.readFile(__dirname + '/index.html',
-        function (err, data) {
-            if (err) {
-                res.writeHead(500);
-                return res.end('Error loading index.html');
-            }
-
-            res.writeHead(200);
-            res.end(data);
-        });
-}
 
 io.sockets.on('connection', function (socket) {
     socket.on('getLatest', function (data) {
-        var getLatest = {}
+        var getLatest = {};
         if (applications[data.application]) {
             getLatest = applications[data.application].getLatest(data.monitor);
         }
@@ -35,5 +19,4 @@ io.sockets.on('connection', function (socket) {
     });
 });
 
-
-
+console.log('Websocket -  listening at port %s', config.websocketServer.port);

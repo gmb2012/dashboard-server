@@ -10,7 +10,7 @@ config.websocketServer = {};
 config.websocketServer.port = 1337;
 
 // Enabled apps
-config.applications = ["App1", "App2"];
+config.applications = ["App01", "App02"];
 
 // How many data to keep
 config.entriesToKeep = 200;

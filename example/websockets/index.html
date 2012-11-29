@@ -1,0 +1,9 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost:{{port}}');
+    socket.on('getLatest', function (data) {
+        console.log(data);
+    });
+</script>
+<div onclick="socket.emit('getLatest', { application: 'App01', monitor: 'test'  });">Poll App01 of test monitor</div>
+<div onclick="socket.emit('set', { application: 'App01', monitor: 'test', value: Math.random()  });">Set 2 App01 of test monitor</div>

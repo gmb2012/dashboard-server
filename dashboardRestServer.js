@@ -30,6 +30,3 @@ server.get('/getLatest/:application/:monitor', function (request, response) {
 server.listen(config.restServer.port, function () {
     console.log('REST -  listening at port %s', config.restServer.port);
 });
-
-
-

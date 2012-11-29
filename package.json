@@ -15,7 +15,8 @@
     },
     "dependencies" : {
         "restify"   : "1.4.4",
-        "socket.io" : "0.9.10"
+        "socket.io" : "0.9.10",
+        "hogan.js" : ">= 0.0.1"
     },
     "license": "MIT",
     "engines": {
