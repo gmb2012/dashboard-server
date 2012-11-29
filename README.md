@@ -2,6 +2,7 @@
 Simple Dashboard incl. server and multiple clients
 
 To-Do:
+* Align readme to Github markdown
 * Add direct sending of a setted value for Websocket
 * Add Javascript Client
 * Add more clients

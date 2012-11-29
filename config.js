@@ -1,18 +1,17 @@
-/* CONFIG */
-var config = {};
+module.exports = {
+    // REST Server configs
+    restServer: {
+        port: 8888
+    },
 
-// REST Server configs
-config.restServer = {};
-config.restServer.port = 8888;
+    // Websocket Server configs
+    websocketServer: {
+        port: 8888
+    },
 
-// Websocket Server configs
-config.websocketServer = {};
-config.websocketServer.port = 1337;
+    // Enabled apps
+    applications: ["App01", "App02"],
 
-// Enabled apps
-config.applications = ["App01", "App02"];
-
-// How many data to keep
-config.entriesToKeep = 200;
-
-module.exports = config;
+    // How many data to keep
+    entriesToKeep: 200
+};

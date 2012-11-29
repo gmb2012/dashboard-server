@@ -7,14 +7,15 @@ var app = require('http').createServer(handler),
 app.listen(80);
 
 function handler (req, res) {
-    fs.readFile(__dirname + '/index.html',
+    fs.readFile(__dirname + '/index.html', 'utf8',
         function (err, data) {
             if (err) {
                 res.writeHead(500);
-                return res.end('Error loading index.html');
+                err.message = 'Error loading index.html, ' + err.message;
+                return res.end(err.stack);
             }
 
             res.writeHead(200);
-            res.end(hogan.compile(data.toString()).render({ port: config.websocketServer.port }));
+            res.end(hogan.compile(data).render({ port: config.websocketServer.port }));
         });
 }
